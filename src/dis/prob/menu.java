@@ -24,11 +24,18 @@ public class menu {
 		
 		return null;
 		
+	}	
+	
+	static double calculoEntropia(List<proba> seniales) {
+		float entropia = 0;
+		float p = 0;
+		for (int i = 0; i < seniales.size(); i++ ) {
+			p = seniales.get(i).getProb();
+			entropia += p * (Math.log10(p) / Math.log10(2));
+		}
+		entropia *= -1;
+		return entropia;
 	}
 	
-	List<hoja> pasarDeListaProbaAHoja (List<proba> listaSeniales){ // convierte la lista proba a una de hojas
-		for (int i =0; i < listaSeniales.size(); i++) {
-			
-		}
-	}
+
 }
