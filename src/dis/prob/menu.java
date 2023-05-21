@@ -19,4 +19,16 @@ public class menu {
 			e.printStackTrace();
 		}
 	}
+	
+	List<hoja> calculoHuffman (List<proba> listaSeniales){
+		
+		return null;
+		
+	}
+	
+	List<hoja> pasarDeListaProbaAHoja (List<proba> listaSeniales){ // convierte la lista proba a una de hojas
+		for (int i =0; i < listaSeniales.size(); i++) {
+			
+		}
+	}
 }
