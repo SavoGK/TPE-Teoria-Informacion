@@ -16,9 +16,11 @@ public class Menu {
 
 			}
 			Media m = new Media(input);
-			double media = m.calcularMedia();
+			//double media = m.calcularMedia();
+			double media = m.calcularDesvio(input);
+			
 				
-			System.out.println("media: " + media);
+			System.out.println("desvio: " + media);
 		
 			List<Rama> valores = Huffman.calculoHuffman(listaSeniales);
 			float longMedia = longitudMedia(valores);
