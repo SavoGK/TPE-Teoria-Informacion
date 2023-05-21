@@ -58,7 +58,7 @@ public class Menu {
 	static double totalBits (List<Rama> valores) {
 		double total = 0;
 		for (int i = 0; i < valores.size(); i++) {
-			total = total + toDouble(valores.get(i).getBits());
+			total = total + valores.get(i).getBits().length();
 		}
 		return total;
 	}
