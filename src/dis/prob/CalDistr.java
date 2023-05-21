@@ -6,16 +6,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class calDistr {
-	private List<proba> listaSeniales = new ArrayList<>();
+public class CalDistr {
+	private List<Proba> listaSeniales = new ArrayList<>();
 	private int pruebas = 0;
 	private BufferedReader br;
-	public calDistr(FileReader file) {
+	public CalDistr(FileReader file) {
 		super();
 		this.br = new BufferedReader(file);
 	}
 	
-	public List<proba> probabilidades() {
+	public List<Proba> probabilidades() {
 		String seniales = "null";
 		try {
 			seniales = br.readLine();
@@ -23,7 +23,7 @@ public class calDistr {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		proba p = new proba(seniales);
+		Proba p = new Proba(seniales);
 		p.sumarExitos();
 		pruebas++;
 		p.setProb(pruebas);
@@ -36,7 +36,7 @@ public class calDistr {
 		}
 		while (seniales != null) {
 			pruebas++;
-			p = new proba(seniales);
+			p = new Proba(seniales);
 			if (!listaSeniales.contains(p)) {
 				listaSeniales.add(p);
 			}

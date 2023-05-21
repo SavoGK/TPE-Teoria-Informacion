@@ -2,11 +2,11 @@ package dis.prob;
 
 import java.util.Objects;
 
-public class proba {
+public class Proba {
 	private String senial;
 	private int exitos = 0;
 	private float prob = 0;
-	public proba(String senial) {
+	public Proba(String senial) {
 		super();
 		this.senial = senial;
 	}
@@ -35,7 +35,7 @@ public class proba {
 	
 	@Override
 	public boolean equals(Object o) {
-		proba p = (proba) o;
+		Proba p = (Proba) o;
 		if (Objects.equals(this.senial, p.getSenial()))
 			return true;
 		return false;

@@ -1,12 +1,12 @@
 package dis.prob;
 
-public class rama implements Comparable<rama> {
+public class Rama implements Comparable<Rama> {
 	private float prob = 0;
 	private String bits;
 	private String senial;
-	private rama izq;
-	private rama der;
-	public rama(rama izq, rama der) {
+	private Rama izq;
+	private Rama der;
+	public Rama(Rama izq, Rama der) {
 		super();
 		this.izq = izq;
 		this.der = der;
@@ -43,16 +43,16 @@ public class rama implements Comparable<rama> {
 	
 	
 	
-	public rama getIzq() {
+	public Rama getIzq() {
 		return izq;
 	}
 	
-	public rama getDer() {
+	public Rama getDer() {
 		return der;
 	}
 	
 	@Override
-	public int compareTo(rama o) {
+	public int compareTo(Rama o) {
 		if (this.prob < o.getProb())
 			return -1;
 		else  if (o.getProb() < this.prob)

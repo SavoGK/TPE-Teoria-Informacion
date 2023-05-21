@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class huffman {
+public class Huffman {
 	
-	static List<rama> calculoHuffman (List<proba> listaSeniales){
-	List<rama> hojas = pasarDeListaProbaAHoja(listaSeniales);
-	List<rama> arbol = new ArrayList<>(hojas);
+	static List<Rama> calculoHuffman (List<Proba> listaSeniales){
+	List<Rama> hojas = pasarDeListaProbaAHoja(listaSeniales);
+	List<Rama> arbol = new ArrayList<>(hojas);
 	while (arbol.size() > 1) {
-		rama r1 = arbol.get(0);
-		rama r2 = arbol.get(1);
-		rama r = new rama(r1, r2);
+		Rama r1 = arbol.get(0);
+		Rama r2 = arbol.get(1);
+		Rama r = new Rama(r1, r2);
 		arbol.remove(r1);
 		arbol.remove(r2);
 		arbol.add( r);
@@ -23,10 +23,10 @@ public class huffman {
 	
 }
 
-	private static List<rama> pasarDeListaProbaAHoja (List<proba> listaSeniales){ // convierte la lista proba a una de hojas
-		List<rama> hojas = new ArrayList<>();
+	private static List<Rama> pasarDeListaProbaAHoja (List<Proba> listaSeniales){ // convierte la lista proba a una de hojas
+		List<Rama> hojas = new ArrayList<>();
 		for (int i =0; i < listaSeniales.size(); i++) { // crea hojas y las pone en la lista
-			rama h = new rama(null, null);
+			Rama h = new Rama(null, null);
 			h.setProb(listaSeniales.get(i).getProb());
 			h.setSenial(listaSeniales.get(i).getSenial());
 			hojas.add(h);

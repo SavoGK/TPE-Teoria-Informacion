@@ -3,14 +3,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
 
-public class menu {
+public class Menu {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
 			FileReader input = new FileReader("signal2.txt");
-			calDistr cd = new calDistr(input);
-			List<proba> listaSeniales = cd.probabilidades();
+			CalDistr cd = new CalDistr(input);
+			List<Proba> listaSeniales = cd.probabilidades();
 			for (int i = 0; i < listaSeniales.size(); i++) {
 				listaSeniales.get(i).leerProba();
 
@@ -20,7 +20,7 @@ public class menu {
 				
 			System.out.println("media: " + media);
 		
-			List<rama> valores = huffman.calculoHuffman(listaSeniales);
+			List<Rama> valores = Huffman.calculoHuffman(listaSeniales);
 			float longMedia = longitudMedia(valores);
 			System.out.println(longMedia);
 		} catch (FileNotFoundException e) {
@@ -29,7 +29,7 @@ public class menu {
 		}
 	}
 	
-	static float longitudMedia (List<rama> valores) {
+	static float longitudMedia (List<Rama> valores) {
 		float longMedia = 0;
 		for (int i = 0; i < valores.size(); i++) {
 			longMedia = longMedia + valores.get(i).getProb() * valores.get(i).getBits().length();
@@ -37,7 +37,7 @@ public class menu {
 		return longMedia;
 	}
 	
-	static double calculoEntropia(List<proba> seniales) {
+	static double calculoEntropia(List<Proba> seniales) {
 		float entropia = 0;
 		float p = 0;
 		for (int i = 0; i < seniales.size(); i++ ) {
