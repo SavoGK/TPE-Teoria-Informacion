@@ -16,9 +16,9 @@ public class menu {
 			for (int i = 0; i < listaSeniales.size(); i++) {
 				listaSeniales.get(i).leerProba();
 			}
-			List<rama> valores = calculoHuffman(listaSeniales);
+			/*List<rama> valores = calculoHuffman(listaSeniales);
 			float longMedia = longitudMedia(valores);
-			System.out.println(longMedia);
+			System.out.println(longMedia);*/
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -34,7 +34,7 @@ public class menu {
 		return longMedia;
 	}
 	
-	static List<rama> calculoHuffman (List<proba> listaSeniales){
+	/*static List<rama> calculoHuffman (List<proba> listaSeniales){
 		List<rama> hojas = pasarDeListaProbaAHoja(listaSeniales);
 		List<rama> arbol = new ArrayList<>(hojas);
 		while (arbol.size() > 1) {
@@ -49,8 +49,20 @@ public class menu {
 		System.out.println(hojas.get(0).getBits());
 		return hojas;
 		
+	}	*/
+	
+	static double calculoEntropia(List<proba> seniales) {
+		float entropia = 0;
+		float p = 0;
+		for (int i = 0; i < seniales.size(); i++ ) {
+			p = seniales.get(i).getProb();
+			entropia += p * (Math.log10(p) / Math.log10(2));
+		}
+		entropia *= -1;
+		return entropia;
 	}
 	
+/*
 	static List<rama> pasarDeListaProbaAHoja (List<proba> listaSeniales){ // convierte la lista proba a una de hojas
 		List<rama> hojas = new ArrayList<>();
 		for (int i =0; i < listaSeniales.size(); i++) { // crea hojas y las pone en la lista
@@ -61,5 +73,5 @@ public class menu {
 		}
 		Collections.sort(hojas);
 		return hojas;
-	}
+	}*/
 }
