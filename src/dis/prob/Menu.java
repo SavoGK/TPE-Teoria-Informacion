@@ -25,6 +25,9 @@ public class Menu {
 			List<Rama> valores = Huffman.calculoHuffman(listaSeniales);
 			float longMedia = longitudMedia(valores);
 			System.out.println(longMedia);
+			double totalBits = totalBits(valores);
+			System.out.println("Total en bits "+totalBits);
+			System.out.println("Total en byts "+totalBits/8); // me parece que esta mal planteado preguntar que pide
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -49,5 +52,17 @@ public class Menu {
 		entropia *= -1;
 		return entropia;
 	}
-
+	
+	static Double toDouble(String s) {
+	    return Double.parseDouble(s);
+	}
+	
+	static double totalBits (List<Rama> valores) {
+		double total = 0;
+		for (int i = 0; i < valores.size(); i++) {
+			total = total + valores.get(i).getBits().length();
+		}
+		return total;
+	}
+	
 }
