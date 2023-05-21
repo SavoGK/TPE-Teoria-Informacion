@@ -9,11 +9,17 @@ public class menu {
 		// TODO Auto-generated method stub
 		try {
 			FileReader input = new FileReader("signal2.txt");
+			 /*
 			calDistr cd = new calDistr(input);
 			List<proba> listaSeniales = cd.probabilidades();
 			for (int i = 0; i < listaSeniales.size(); i++) {
 				listaSeniales.get(i).leerProba();
-			}
+			}*/
+			Media m = new Media(input);
+			double media = m.calcularMedia();
+			
+			
+			System.out.println("media: " + media);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -36,6 +42,5 @@ public class menu {
 		entropia *= -1;
 		return entropia;
 	}
-	
 
 }
