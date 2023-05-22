@@ -14,20 +14,25 @@ public class Menu {
 			for (int i = 0; i < listaSeniales.size(); i++) {
 				listaSeniales.get(i).leerProba();
 
-			}
-			Media m = new Media(input);
-			//double media = m.calcularMedia();
-			double media = m.calcularDesvio(input);
-			
-				
-			System.out.println("desvio: " + media);
-		
+			}		
 			List<Rama> valores = Huffman.calculoHuffman(listaSeniales);
 			float longMedia = longitudMedia(valores);
 			System.out.println(longMedia);
 			double totalBits = totalBits(valores);
 			System.out.println("Total en bits "+totalBits);
 			System.out.println("Total en byts "+totalBits/8); // me parece que esta mal planteado preguntar que pide
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			FileReader input = new FileReader("signal2.txt");
+			FileReader input2 = new FileReader("signal2.txt");
+			Media m = new Media(input,input2);
+			//double media = m.calcularMedia();
+			double media = 0;
+			media = m.calcularDesvio();				
+			System.out.println("desvio: " + media);			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 public class Media {
 	private BufferedReader br;
+	private BufferedReader braux;
 	private String seniales;
 	private int cantidad;
 	private double media;
@@ -12,9 +13,10 @@ public class Media {
 	private double senial;
 	private double desvioEstandar;
 	
-	public Media(FileReader file) {
+	public Media(FileReader file, FileReader file2) {
 		super();
 		this.br = new BufferedReader(file);
+		this.braux = new BufferedReader(file2);
 		this.seniales = "null";
 		this.cantidad = 0;
 		this.media = 0;
@@ -33,6 +35,7 @@ public class Media {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if (seniales == null)
 		while (seniales != null ) {
 			senial = toDouble(seniales);
 			suma+= senial;
@@ -49,8 +52,7 @@ public class Media {
 		return media;	
 	}
 	
-	public double calcularDesvio(FileReader file) {
-		BufferedReader braux = new BufferedReader(file);
+	public double calcularDesvio() {
 		try {
 			seniales = br.readLine();
 			
@@ -71,10 +73,13 @@ public class Media {
 			}
 		}
 		media = suma/cantidad;
+
+		System.out.println("medi: " + media);
 		double divisor = 0;
 		for (int i=0; i < cantidad; i++) {
 			try {
 				seniales = braux.readLine();
+				
 				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -84,6 +89,8 @@ public class Media {
 			divisor+= (senial - media) * (senial - media);
 			System.out.println("divisor: " + divisor);
 		}
+		System.out.println("divisor: " + divisor);
+		System.out.println("cantidad: " + cantidad);
 		desvioEstandar = Math.sqrt(divisor/cantidad);
 		return desvioEstandar;
 		
