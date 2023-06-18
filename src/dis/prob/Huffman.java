@@ -29,6 +29,7 @@ public class Huffman {
 			Rama h = new Rama(null, null);
 			h.setProb(listaSeniales.get(i).getProb());
 			h.setSenial(listaSeniales.get(i).getSenial());
+			h.setOcurrencias(listaSeniales.get(i).getExitos());
 			hojas.add(h);
 		}
 		Collections.sort(hojas);

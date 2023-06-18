@@ -20,12 +20,12 @@ public class Menu {
 			System.out.println(longMedia);
 			double totalBits = totalBits(valores);
 			System.out.println("Total en bits "+totalBits);
-			System.out.println("Total en byts "+totalBits/8); // me parece que esta mal planteado preguntar que pide
+			System.out.println("Total en byts "+totalBits/8);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		try {
+		/*try {
 			FileReader input = new FileReader("signal2.txt");
 			FileReader input2 = new FileReader("signal2.txt");
 			Media m = new Media(input,input2);
@@ -36,7 +36,7 @@ public class Menu {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	static float longitudMedia (List<Rama> valores) {
@@ -65,7 +65,7 @@ public class Menu {
 	static double totalBits (List<Rama> valores) {
 		double total = 0;
 		for (int i = 0; i < valores.size(); i++) {
-			total = total + valores.get(i).getBits().length();
+			total = total + valores.get(i).getBits().length() * valores.get(i).getOcurrencias();
 		}
 		return total;
 	}
